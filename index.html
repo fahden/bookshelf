@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bookshelf App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Bookshelf App</h1>
+
+  <!-- FORM TAMBAH BUKU -->
+  <section>
+    <h2>Tambah Buku</h2>
+    <form data-testid="bookForm" id="bookForm">
+      <input
+        data-testid="bookFormTitleInput"
+        id="bookFormTitle"
+        type="text"
+        placeholder="Judul"
+        required
+      />
+      <input
+        data-testid="bookFormAuthorInput"
+        id="bookFormAuthor"
+        type="text"
+        placeholder="Penulis"
+        required
+      />
+      <input
+        data-testid="bookFormYearInput"
+        id="bookFormYear"
+        type="number"
+        placeholder="Tahun"
+        required
+      />
+      <label>
+        <input
+          data-testid="bookFormIsCompleteCheckbox"
+          id="bookFormIsComplete"
+          type="checkbox"
+        />
+        <span>Selesai dibaca</span>
+      </label>
+      <button
+        data-testid="bookFormSubmitButton"
+        type="submit"
+      >
+        Masukkan Buku
+      </button>
+    </form>
+  </section>
+
+  <!-- SEARCH -->
+  <section>
+    <h2>Cari Buku</h2>
+    <form data-testid="searchBookForm" id="searchBookForm">
+      <input
+        data-testid="searchBookFormTitleInput"
+        id="searchBookTitle"
+        type="text"
+        placeholder="Cari judul buku..."
+      />
+      <button
+        data-testid="searchBookFormSubmitButton"
+        type="submit"
+      >
+        Cari
+      </button>
+    </form>
+  </section>
+
+  <!-- RAK BELUM SELESAI -->
+  <section>
+    <h2>Belum selesai dibaca</h2>
+    <div
+      data-testid="incompleteBookList"
+      id="incompleteBookList"
+    ></div>
+  </section>
+
+  <!-- RAK SELESAI -->
+  <section>
+    <h2>Selesai dibaca</h2>
+    <div
+      data-testid="completeBookList"
+      id="completeBookList"
+    ></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

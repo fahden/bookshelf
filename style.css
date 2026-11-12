@@ -1,0 +1,328 @@
+/* ===== RESET RINGAN ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #333;
+}
+
+/* ===== JUDUL ===== */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.8rem;
+  color: #222;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* ===== SECTION ===== */
+section {
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+/* MODE IOS */
+/* ===== iOS STYLE SWITCH ===== */
+#bookForm label {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* sembunyikan checkbox asli */
+#bookForm input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 44px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 999px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* bulatan switch */
+#bookForm input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* saat aktif */
+#bookForm input[type="checkbox"]:checked {
+  background: #6c63ff;
+}
+
+#bookForm input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+#bookForm input[type="checkbox"] {
+  accent-color: #6c63ff;
+}
+
+
+/* tombol utama */
+form button {
+  background: #6c63ff;
+  color: white;
+}
+
+/* ===== SEARCH ===== */
+#searchBookTitle {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* ===== RAK BUKU ===== */
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+/* ===== KARTU BUKU ===== */
+[data-testid="bookItem"] {
+  background: #fafafa;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== ISI BUKU ===== */
+[data-testid="bookItemTitle"] {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ===== BUTTON DI DALAM BUKU ===== */
+[data-testid="bookItem"] div {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background: #00b894;
+  color: white;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background: #ff7675;
+  color: white;
+}
+
+[data-testid="bookItemEditButton"] {
+  background: #0984e3;
+  color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* IOS MODE */
+/* =====================
+   iOS 17 SUPER LOOK
+   (Glassmorphism + Soft Motion)
+===================== */
+
+/* global feel */
+body {
+  letter-spacing: 0.2px;
+}
+
+/* section jadi glass card */
+section {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* judul ala Apple */
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+/* input iOS style */
+input[type="text"],
+input[type="number"] {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* tombol iOS */
+button {
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* kartu buku → floating glass */
+[data-testid="bookItem"] {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* hover ala iOS */
+[data-testid="bookItem"]:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* tombol di kartu */
+[data-testid="bookItem"] button {
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* switch iOS lebih smooth */
+#bookForm input[type="checkbox"] {
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.08),
+    0 3px 8px rgba(0,0,0,0.25);
+}
+
+#bookForm input[type="checkbox"]::before {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* ===== iOS 17 DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #0b0b10, #1a1a22);
+    color: #f2f2f7;
+  }
+
+  section {
+    background: rgba(30, 30, 40, 0.65);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background: rgba(40, 40, 55, 0.85);
+    border-color: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  [data-testid="bookItem"] {
+    background: rgba(35, 35, 50, 0.7);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  h1, h2 {
+    color: #fff;
+  }
+}
